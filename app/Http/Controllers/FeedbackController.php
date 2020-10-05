@@ -99,4 +99,17 @@ class FeedbackController extends Controller
         ]);
         return $data;
     }
+
+    public function feedback_toggle(Request $request)
+    {
+        $feedback = Feedback::where('id',$request->feedback_id)->first();
+        if($feedback->active){
+            $feedback->active = 0;
+        }
+        else{
+            $feedback->active = 1;
+        }
+        $feedback->save();
+        return response()->json(['data' => 'success']);
+    }
 }

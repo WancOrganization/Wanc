@@ -14,6 +14,7 @@ Route::group(['prefix' => 'admin'], function(){
     Route::get('dashboard',[\App\Http\Controllers\AdminController::class,'dashboard']);
     Route::resource('get-in-touch',GetInTouchController::class);
     Route::resource('feedback',FeedbackController::class);
+    Route::post('feedback_toggle',[FeedbackController::class,'feedback_toggle'])->name('feedback.toggle');
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
