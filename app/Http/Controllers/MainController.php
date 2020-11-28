@@ -14,9 +14,14 @@ class MainController extends Controller
         return view('index',compact('feedbacks'));
     }
 
-    public function store(Request $request)
+    public function get_in_touch_store(Request $request)
     {
         GetInTouch::create($request->all());
-        return response()->json(['data','success']);
+        return response()->json(['data' => 'success']);
+    }
+
+    public function feedback_store(Request $request){
+        Feedback::create($request->all());
+        return response()->json(['data' => 'success']);
     }
 }

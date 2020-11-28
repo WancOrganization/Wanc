@@ -65,7 +65,7 @@
                         <li><a href="#contactus"><span>Contact Us</span></a></li>
                         <li><a href="#testimonials"><span>Testimonials</span></a></li>
                         <li><a href="#feedback"><span>Feedback</span></a></li>
-                        
+
                     </ul>
                 </nav>
             </div>
@@ -316,7 +316,7 @@
     </section>
 
 
- 
+
 
     <!-- CONTENT -->
     <section id="contactus" class=" text-light" style="background-color: #121212;">
@@ -437,18 +437,18 @@
         <div class="container"
              style="background-image: url({{asset('Main/homepages/branding/images/background-4.png')}});">
             <div class="row mb-5">
-               
+
                 <div class="text-center col-md-6 p-t-60">
                     <h1 class="text-uppercase">FEEDBACK</h1>
                 </div>
-                
+
             </div>
 
             <div class="row ">
                 <div class="col-lg-6">
                     <div class="m-t-30">
                         <form class="widget-contact-form" novalidate action="" role="form"
-                              method="post" id="get-in-touch-form">
+                              method="post" id="feedback-form">
                             @csrf
                             <div class="row">
                                 <div class="form-group col-md-12">
@@ -457,14 +457,21 @@
                                            class="form-control required name" placeholder="Enter your Name">
                                 </div>
                             </div>
+                            <div class="row">
+                                <div class="form-group col-md-12">
+                                    <label for="name">Designation</label>
+                                    <input type="text" aria-required="true" name="designation" required
+                                           class="form-control required name" placeholder="Enter your Designation">
+                                </div>
+                            </div>
                             <div class="form-group">
                                 <label for="message">Feedback</label>
-                                <textarea type="text" name="message" required rows="5"
+                                <textarea type="text" name="description" required rows="5"
                                           class="form-control required" placeholder="Enter your Feedback"></textarea>
                             </div>
 
                             <button class="btn border-dark background-grey text-dark" type="submit"
-                                    id="form-submit"><i class="fa fa-paper-plane"></i>&nbsp;Send Feedback
+                                    id="feedback-form-submit"><i class="fa fa-paper-plane"></i>&nbsp;Send Feedback
                             </button>
                         </form>
                     </div>
@@ -481,7 +488,7 @@
             <img src="{{asset('Main/images/wancimages/contact.png')}}" alt="" width="100%">
         </div>
         </div>
-        
+
     </section> <!-- end: FeedBack -->
 
 
@@ -524,6 +531,25 @@
         </div>
     </div>
 
+    <div class="modal fade" id="feedback-success-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Success</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Thank you. your feedback has been submitted with us.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
 <!-- end: Body Inner -->
 
@@ -551,11 +577,24 @@
         e.preventDefault();
         $.ajax({
             type: "POST",
-            url: '{{Route('get.in.touch.store')}}',
+            url: '{{Route('main.get.in.touch.store')}}',
             data: $('#get-in-touch-form').serialize(),
             success: function (data) {
                 $("#get-in-touch-form").trigger("reset");
                 $('#get-in-touch-success-modal').modal('show');
+            }
+        });
+    });
+
+    $('#feedback-form-submit').on("click", function (e) {
+        e.preventDefault();
+        $.ajax({
+            type: "POST",
+            url: '{{Route('main.feedback.store')}}',
+            data: $('#feedback-form').serialize(),
+            success: function (data) {
+                $("#feedback-form").trigger("reset");
+                $('#feedback-success-modal').modal('show');
             }
         });
     });
