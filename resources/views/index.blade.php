@@ -47,8 +47,9 @@
                                 <li><a href="#services"><span>Services</span></a></li>
                                 <li><a href="#portfolio"><span>Portfolio</span></a></li>
                                 <li><a href="#feature"><span>Feature work</span></a></li>
-                                <li><a href="#testimonials"><span>Testimonials</span></a></li>
                                 <li><a href="#contactus"><span>Contact Us</span></a></li>
+                                <li><a href="#testimonials"><span>Testimonials</span></a></li>
+                                <li><a href="#feedback"><span>Feedback</span></a></li>
                             </ul>
                         </nav>
                     </div>
@@ -61,8 +62,10 @@
                         <li><a href="#services"><span>Services</span></a></li>
                         <li><a href="#portfolio"><span>Portfolio</span></a></li>
                         <li><a href="#feature"><span>Feature work</span></a></li>
-                        <li><a href="#testimonials"><span>Testimonials</span></a></li>
                         <li><a href="#contactus"><span>Contact Us</span></a></li>
+                        <li><a href="#testimonials"><span>Testimonials</span></a></li>
+                        <li><a href="#feedback"><span>Feedback</span></a></li>
+                        
                     </ul>
                 </nav>
             </div>
@@ -75,7 +78,7 @@
     <div id="slider" class="inspiro-slider slider-fullscreen mb-2">
 
         <!-- Slide 1 -->
-        <div class="slide" style="background-image:url({{asset('Main/images/wancimages/wancbg3.png')}});">
+        <div class="slide" style="background-image:url({{asset('Main/images/wancimages/wancbg4.png')}});">
             <div class="container-wide">
                 <div id="particles-stars" class="particles"></div>
                 <div class="text-center">
@@ -313,43 +316,10 @@
     </section>
 
 
-    <!-- Testimonial -->
-    <section id="testimonials" class="" style="background-color: #121212;">
-        <div class="container">
-            <!-- Testimonials -->
-            <div class="row">
-                <div class="col-md-9">
-                    <div class="carousel arrows-visibile testimonial testimonial-single" data-items="1" data-loop="true"
-                         data-autoplay="true" data-autoplay="3500" data-arrows="false">
-
-                        <!-- Testimonials item -->
-                        @foreach($feedbacks as $f)
-                            <div class="testimonial-item">
-                                <p>{{$f->description}}</p>
-                                <span>{{$f->name}}</span>
-                                <span>{{$f->designation}}</span>
-                            </div>
-                    @endforeach
-                    <!-- end: Testimonials item-->
-
-
-                    </div>
-                </div>
-                <div class="col-md-3 pt-5">
-                    <img src="{{asset('Main/images/wancimages/testimonials.png')}}" alt="" width="90%">
-                </div>
-
-
-            </div>
-
-            <!-- end: Testimonials -->
-        </div>
-    </section>
-    <!-- end: Testimonial -->
-
+ 
 
     <!-- CONTENT -->
-    <section id="contactus" class=" text-light" style="background-color: #1a1a1a;">
+    <section id="contactus" class=" text-light" style="background-color: #121212;">
         <div class="container"
              style="background-image: url({{asset('Main/homepages/branding/images/background-4.png')}});">
             <div class="row mb-5">
@@ -423,10 +393,100 @@
             </div>
 
         </div>
-        <div class="mt-5 ml-3">
-            <img src="{{asset('Main/images/wancimages/contact.png')}}" alt="" width="95%">
-        </div>
     </section> <!-- end: Content -->
+
+   <!-- Testimonial -->
+   <section id="testimonials" class="" style="background-color: #1a1a1a;">
+   <div class="text-light text-center pb-5">
+                <h1 class="text-uppercase">Testimonials</h1>
+            </div>
+        <div class="container">
+            <!-- Testimonials -->
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="carousel arrows-visibile testimonial testimonial-single" data-items="1" data-loop="true"
+                         data-autoplay="true" data-autoplay="3500" data-arrows="false">
+
+                        <!-- Testimonials item -->
+                        @foreach($feedbacks as $f)
+                            <div class="testimonial-item">
+                                <p>{{$f->description}}</p>
+                                <span>{{$f->name}}</span>
+                                <span>{{$f->designation}}</span>
+                            </div>
+                    @endforeach
+                    <!-- end: Testimonials item-->
+
+
+                    </div>
+                </div>
+                <div class="col-md-3 pt-5">
+                    <img src="{{asset('Main/images/wancimages/testimonials.png')}}" alt="" width="90%">
+                </div>
+
+
+            </div>
+
+            <!-- end: Testimonials -->
+        </div>
+    </section>
+    <!-- end: Testimonial -->
+
+ <!-- FeedBack -->
+ <section id="feedback" class=" text-light" style="background-color: #121212;">
+        <div class="container"
+             style="background-image: url({{asset('Main/homepages/branding/images/background-4.png')}});">
+            <div class="row mb-5">
+               
+                <div class="text-center col-md-6 p-t-60">
+                    <h1 class="text-uppercase">FEEDBACK</h1>
+                </div>
+                
+            </div>
+
+            <div class="row ">
+                <div class="col-lg-6">
+                    <div class="m-t-30">
+                        <form class="widget-contact-form" novalidate action="" role="form"
+                              method="post" id="get-in-touch-form">
+                            @csrf
+                            <div class="row">
+                                <div class="form-group col-md-12">
+                                    <label for="name">Name</label>
+                                    <input type="text" aria-required="true" name="name" required
+                                           class="form-control required name" placeholder="Enter your Name">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Feedback</label>
+                                <textarea type="text" name="message" required rows="5"
+                                          class="form-control required" placeholder="Enter your Feedback"></textarea>
+                            </div>
+
+                            <button class="btn border-dark background-grey text-dark" type="submit"
+                                    id="form-submit"><i class="fa fa-paper-plane"></i>&nbsp;Send Feedback
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-1">
+                </div>
+                <div class="col-lg-5">
+                    <div class="">
+                        <img src="{{asset('Main/images/wancimages/feedback.png')}}" alt="" style="width: 100%;">
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12 m-t-100 text-center">
+            <img src="{{asset('Main/images/wancimages/contact.png')}}" alt="" width="100%">
+        </div>
+        </div>
+        
+    </section> <!-- end: FeedBack -->
+
+
+
+
 
 
     <!-- Footer -->
