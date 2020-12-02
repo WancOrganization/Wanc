@@ -48,7 +48,9 @@
                                 <li><a href="#portfolio"><span>Portfolio</span></a></li>
                                 <li><a href="#feature"><span>Feature work</span></a></li>
                                 <li><a href="#contactus"><span>Contact Us</span></a></li>
+                                @if($feedbacks->count()>0)
                                 <li><a href="#testimonials"><span>Testimonials</span></a></li>
+                                @endif
                                 <li><a href="#feedback"><span>Feedback</span></a></li>
                             </ul>
                         </nav>
@@ -63,7 +65,9 @@
                         <li><a href="#portfolio"><span>Portfolio</span></a></li>
                         <li><a href="#feature"><span>Feature work</span></a></li>
                         <li><a href="#contactus"><span>Contact Us</span></a></li>
+                        @if($feedbacks->count()>0)
                         <li><a href="#testimonials"><span>Testimonials</span></a></li>
+                        @endif
                         <li><a href="#feedback"><span>Feedback</span></a></li>
 
                     </ul>
@@ -395,42 +399,46 @@
         </div>
     </section> <!-- end: Content -->
 
-   <!-- Testimonial -->
-   <section id="testimonials" class="" style="background-color: #1a1a1a;">
-   <div class="text-light text-center pb-5">
+
+    @if($feedbacks->count()>0)
+    <!-- Testimonial -->
+    <section id="testimonials" class="" style="background-color: #1a1a1a;">
+            <div class="text-light text-center pb-5">
                 <h1 class="text-uppercase">Testimonials</h1>
             </div>
-        <div class="container">
-            <!-- Testimonials -->
-            <div class="row">
-                <div class="col-md-9">
-                    <div class="carousel arrows-visibile testimonial testimonial-single" data-items="1" data-loop="true"
-                         data-autoplay="true" data-autoplay="3500" data-arrows="false">
+            <div class="container">
+                <!-- Testimonials -->
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="carousel arrows-visibile testimonial testimonial-single" data-items="1" data-loop="true"
+                            data-autoplay="true" data-autoplay="3500" data-arrows="false">
 
-                        <!-- Testimonials item -->
-                        @foreach($feedbacks as $f)
-                            <div class="testimonial-item">
-                                <p>{{$f->description}}</p>
-                                <span>{{$f->name}}</span>
-                                <span>{{$f->designation}}</span>
-                            </div>
-                    @endforeach
-                    <!-- end: Testimonials item-->
+                            <!-- Testimonials item -->
+                            @foreach($feedbacks as $f)
+                                <div class="testimonial-item">
+                                    <p>{{$f->description}}</p>
+                                    <span>{{$f->name}}</span>
+                                    <span>{{$f->designation}}</span>
+                                </div>
+                        @endforeach
+                        <!-- end: Testimonials item-->
 
 
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-3 pt-5">
-                    <img src="{{asset('Main/images/wancimages/testimonials.png')}}" alt="" width="90%">
-                </div>
+                    <div class="col-md-3 pt-5">
+                        <img src="{{asset('Main/images/wancimages/testimonials.png')}}" alt="" width="90%">
+                    </div>
 
 
+                </div>
+
+                <!-- end: Testimonials -->
             </div>
+        </section>
+        <!-- end: Testimonial -->
+        @endif
 
-            <!-- end: Testimonials -->
-        </div>
-    </section>
-    <!-- end: Testimonial -->
 
  <!-- FeedBack -->
  <section id="feedback" class=" text-light" style="background-color: #121212;">
