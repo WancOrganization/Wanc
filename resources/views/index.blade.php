@@ -107,11 +107,11 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-7">
-                    <div class="heading-text heading-section text-left text-light mt-5">
+                    <div class="heading-text heading-section text-center text-light mt-5">
                         <h1 class="text-medium" style="font-weight: 400;">Wanc Studios</h1>
                     </div>
-                    <div class="text-light p-r-100" style="font-weight: 400;">
-                        <p class="p-r-50" style="font-size: 16px;"> We are creative firm that design your dreams
+                    <div class="text-light text-center" style="font-weight: 400;">
+                        <p class="mb-5" style="font-size: 16px;"> We are creative firm that design your dreams
                             into innovations. Your dream design is about to get real.
                             Your ideas with our innovation will result in unique outcomes. Unlike your friend we
                             will be always on time.
@@ -121,8 +121,8 @@
 
 
                 </div>
-                <div class="col-lg-5"><img alt="" src="{{asset('Main/images/wancimages/featureimage.png')}}"
-                                           width="70%"></div>
+                <div class="col-lg-5 text-center">
+                    <img alt="" src="{{asset('Main/images/wancimages/featureimage.png')}}" width="80%"></div>
 
             </div>
         </div>
@@ -134,17 +134,17 @@
     <section id="services" class="text-light" style="background-color: #121212;">
         <div class="container">
             <div class="row">
-                <div class="col-lg-5 pt-5 mt-5 pr-5">
+                <div class="col-lg-5 pt-5 pb-5 mt-5 text-center">
 
                     <div class="pt-5">
-                        <img src="{{asset('Main/images/wancimages/serviceimage.png')}}" alt="" style="width: 80%;">
+                        <img src="{{asset('Main/images/wancimages/serviceimage.png')}}" alt="" style="width: 90%;">
                     </div>
                 </div>
                 <div class="col-lg-7">
+                    <div class="heading-text pb-3 text-center heading-section">
+                        <h1 class="text-medium ">Best Services Around</h1>
+                    </div>
                     <div class="row">
-                        <div class="heading-text heading-section">
-                            <h1 class="text-medium ">Best Services Around</h1>
-                        </div>
                         <div class="col-lg-6">
                             <div class="icon-box effect small clean">
                                 <div class="icon">
@@ -327,14 +327,14 @@
         <div class="container"
              style="background-image: url({{asset('Main/homepages/branding/images/background-4.png')}});">
             <div class="row mb-5">
-                <div class="text-center col-md-3 p-r-50">
-                    <img src="{{asset('Main/images/wancimages/Getintouchleft.svg')}}" alt="" width="80%">
+                <div class="text-center col-md-3 ">
+                    <img src="{{asset('Main/images/wancimages/Getintouchleft.svg')}}" alt="" width="60%">
                 </div>
-                <div class="text-center col-md-6 p-t-60">
+                <div class="text-center col-md-6 mb-5 p-t-60">
                     <h1 class="text-uppercase">Let’s Talk Business</h1>
                 </div>
-                <div class="text-center col-md-3 p-l-50">
-                    <img src="{{asset('Main/images/wancimages/Getintouchright.png')}}" alt="" width="80%">
+                <div class="text-center col-md-3">
+                    <img src="{{asset('Main/images/wancimages/Getintouchright.png')}}" alt="" width="60%">
                 </div>
             </div>
 
@@ -417,7 +417,7 @@
                             @foreach($feedbacks as $f)
                                 <div class="testimonial-item">
                                     <p>{{$f->description}}</p>
-                                    <span>{{$f->name}}</span>
+                                    <span class="text-light text-uppercase">{{$f->name}}</span>
                                     <span>{{$f->designation}}</span>
                                 </div>
                         @endforeach
@@ -427,7 +427,7 @@
                         </div>
                     </div>
                     <div class="col-md-3 pt-5">
-                        <img src="{{asset('Main/images/wancimages/testimonials.png')}}" alt="" width="90%">
+                        <img src="{{asset('Main/images/wancimages/testimonials.png')}}" alt="" width="80%">
                     </div>
 
 
@@ -487,8 +487,8 @@
                 <div class="col-lg-1">
                 </div>
                 <div class="col-lg-5">
-                    <div class="">
-                        <img src="{{asset('Main/images/wancimages/feedback.png')}}" alt="" style="width: 100%;">
+                    <div class="text-center mt-5">
+                        <img src="{{asset('Main/images/wancimages/feedback.png')}}" alt="" style="width: 80%;">
                     </div>
                 </div>
             </div>
