@@ -12,7 +12,7 @@ Route::post('/get-in-touch',[MainController::class,'get_in_touch_store'])->name(
 Route::post('/feedback',[MainController::class,'feedback_store'])->name('main.feedback.store');
 
 
-Route::group(['prefix' => 'admin'], function(){
+Route::group(['prefix' => 'admin','middleware' => ['auth']], function(){
     Route::get('dashboard',[AdminController::class,'dashboard']);
     Route::resource('get-in-touch',GetInTouchController::class);
     Route::resource('feedback',FeedbackController::class);
