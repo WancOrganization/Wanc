@@ -13,6 +13,28 @@
     <!-- Stylesheets & Fonts -->
     <link href="{{asset('Main/css/plugins.css')}}" rel="stylesheet">
     <link href="{{asset('Main/css/style.css')}}" rel="stylesheet">
+
+<style>
+.image_full{
+    background-image:url({{asset('Main/images/wancimages/wancbg4.png')}});
+   }
+ 
+
+ 
+ @media (max-width: 640px) and (min-width: 320px){
+   .image_full{
+	background-image:url({{asset('Main/images/wancimages/wancbgMobile.png')}});
+   }
+   
+   .mobileLogo{
+       padding-bottom: 250px; 
+   }
+   
+ }
+
+</style>
+
+
 </head>
 
 <body class="background-black">
@@ -77,26 +99,30 @@
 
 
     <!-- Inspiro Slider -->
-    <div id="slider" class="inspiro-slider slider-fullscreen mb-2">
+    <div class="">
+        <div id="slider" class="inspiro-slider  slider-fullscreen mb-2">
 
-        <!-- Slide 1 -->
-        <div class="slide" style="background-image:url({{asset('Main/images/wancimages/wancbg4.png')}});">
-            <div class="container-wide">
-                <div id="particles-stars" class="particles"></div>
-                <div class="text-center">
-                    <img src="{{asset('Main/images/wancimages/wancLogo.svg')}}" alt="" width="25%">
-                    <div class="">
-                        <h4><span style="color: #fdc022; font-family: Square721 BT; font-weight: 100; font-size: 20px;">WANC</span>
-                            <span style="color: #f5832d; font-family: Square721 BT; font-weight: 100; font-size: 20px;">_</span>
-                            <span style="color: #e02013; font-family: Square721 BT; font-weight: 100; font-size: 20px;">STUDIOS</span>
-                        </h4>
+            <!-- Slide 1 -->
+            <div class="slide image_full">
+                
+                <div class="container-wide ">
+                    <div id="particles-stars" class="particles"></div>
+                    <div class="text-center mobileLogo">
+                        <img src="{{asset('Main/images/wancimages/wancLogo.svg')}}" alt="" width="25%">
+                        <div class="">
+                            <h4><span style="color: #fdc022; font-family: Square721 BT; font-weight: 100; font-size: 20px;">WANC</span>
+                                <span style="color: #f5832d; font-family: Square721 BT; font-weight: 100; font-size: 20px;">_</span>
+                                <span style="color: #e02013; font-family: Square721 BT; font-weight: 100; font-size: 20px;">STUDIOS</span>
+                            </h4>
+                        </div>
+    
                     </div>
-
                 </div>
             </div>
+            <!-- end: Slide 1 -->
         </div>
-        <!-- end: Slide 1 -->
     </div>
+    
     <!--end: Inspiro Slider -->
 
 
