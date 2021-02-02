@@ -46,7 +46,6 @@
                                 <li><a href="#wancstudios"><span>About US</span></a></li>
                                 <li><a href="#services"><span>Services</span></a></li>
                                 <li><a href="#portfolio"><span>Portfolio</span></a></li>
-                                <li><a href="#feature"><span>Feature work</span></a></li>
                                 <li><a href="#contactus"><span>Contact Us</span></a></li>
                                 @if($feedbacks->count()>0)
                                 <li><a href="#testimonials"><span>Testimonials</span></a></li>
@@ -63,7 +62,6 @@
                         <li><a href="#wancstudios"><span>About US</span></a></li>
                         <li><a href="#services"><span>Services</span></a></li>
                         <li><a href="#portfolio"><span>Portfolio</span></a></li>
-                        <li><a href="#feature"><span>Feature work</span></a></li>
                         <li><a href="#contactus"><span>Contact Us</span></a></li>
                         @if($feedbacks->count()>0)
                         <li><a href="#testimonials"><span>Testimonials</span></a></li>
@@ -223,6 +221,20 @@
             <div id="portfolio" class="grid-layout portfolio-3-columns" data-margin="0">
 
                 <!-- portfolio item -->
+                <div class="portfolio-item img-zoom ct-photography ct-media ct-branding ct-marketing ct-webdesign">
+                    <div class="portfolio-item-wrap">
+                        <div class="portfolio-image">
+                            <a href="#"><img src="{{asset('Main/images/portfolio/FE.png')}}" alt=""></a>
+                        </div>
+                        <div class="portfolio-description">
+                            <h3>Website Design</h3><br>
+                            <a href="https://www.furnishessentials.com/" target="_blank"><i class="fa fa-link"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- end: portfolio item -->
+
+                <!-- portfolio item -->
                 <div class="portfolio-item img-zoom ct-photography ct-marketing ct-media">
                     <div class="portfolio-item-wrap">
                         <div class="portfolio-image">
@@ -251,15 +263,7 @@
                 </div>
                 <!-- end: portfolio item -->
 
-                <!-- portfolio item -->
-                <div class="portfolio-item img-zoom ct-photography ct-media ct-branding ct-marketing ct-webdesign">
-                    <div class="portfolio-item-wrap">
-                        <div class="portfolio-image">
-                            <a href="#"><img src="{{asset('Main/images/portfolio/65.jpg')}}" alt=""></a>
-                        </div>
-                    </div>
-                </div>
-                <!-- end: portfolio item -->
+                
 
 
             </div>
@@ -270,54 +274,7 @@
     <!-- end: Portfolio -->
 
 
-    <section id="feature" class="no-padding equalize" data-equalize-item=".text-box">
-        <div class="row col-no-margin">
-            <!--Box 1-->
-            <div class="col-lg-3" style="background-color: #2F2F2F;">
-                <div class="text-box">
-                    <a href="#">
-                        <i class="fa fa-paper-plane"></i>
-                        <h3>Tags &amp; Models </h3>
-                        <p>Ispendisse consectetur fringilla luctus usce id mi diam, non ornare.</p>
-                    </a>
-                </div>
-            </div>
-            <!--End: Box 1-->
-            <!--Box 2-->
-            <div class="col-lg-3" style="background-color: #383838;">
-                <div class="text-box">
-                    <a href="#">
-                        <i class="fas fa-chart-pie"></i>
-                        <h3>Our charts </h3>
-                        <p>Ispendisse consectetur fringilla luctus usce id mi diam, non ornare.</p>
-                    </a>
-                </div>
-            </div>
-            <!--End: Box 2-->
-            <!--Box 3-->
-            <div class="col-lg-3" style="background-color: #313131;">
-                <div class="text-box">
-                    <a href="#">
-                        <i class="far fa-lightbulb"></i>
-                        <h3>Light &amp; Dark</h3>
-                        <p>Ispendisse consectetur fringilla luctus usce id mi diam, non ornare.</p>
-                    </a>
-                </div>
-            </div>
-            <!--End: Box 3-->
-            <!--Box 4-->
-            <div class="col-lg-3" style="background-color: #383838;">
-                <div class="text-box">
-                    <a href="#">
-                        <i class="fa fa-language"></i>
-                        <h3>RTL Support</h3>
-                        <p>Ispendisse consectetur fringilla luctus usce id mi diam, non ornare.</p>
-                    </a>
-                </div>
-            </div>
-            <!--End: Box 4-->
-        </div>
-    </section>
+ 
 
 
 
