@@ -132,7 +132,7 @@
             <div class="row align-items-center">
                 <div class="col-lg-7">
                     <div class="heading-text heading-section text-center text-light mt-5">
-                        <h1 class="text-medium" style="font-weight: 400;">Wanc Studios</h1>
+                        <h1 class="text-medium">About Us</h1>
                     </div>
                     <div class="text-light text-center" style="font-weight: 400;">
                         <p class="mb-5" style="font-size: 16px;"> We are creative firm that design your dreams
@@ -204,8 +204,9 @@
                                     <a href="#"><i class="fa fa-gamepad"></i></a>
                                 </div>
                                 <h3>Game Design</h3>
-                                <p>Lorem ipsum dolor sit amet, consecte adipiscing elit. Suspendisse condimentum
-                                    porttitor cursumus.</p>
+                                <p>
+                                    Mobile games have more potential and huge market in both revenue and user base. 
+                                    It accounts for more than 50% of the global gaming industry revenue.</p>
                             </div>
                         </div>
                         <div class="col-lg-6">
@@ -214,8 +215,7 @@
                                     <a href="#"><i class="fa fa-trophy"></i></a>
                                 </div>
                                 <h3>Graphics Design</h3>
-                                <p>Lorem ipsum dolor sit amet, consecte adipiscing elit. Suspendisse condimentum
-                                    porttitor cursumus.</p>
+                                <p>We are particularly proud of our privilege to do what we love and to love what we make. Let us be proud of the solutions that we come up with for you and with you.</p>
                             </div>
                         </div>
                         <div class="col-lg-6  flipInY delay-4s">
@@ -274,6 +274,19 @@
                 </div>
                 <!-- end: portfolio item -->
 
+                <!-- portfolio item -->
+                <div class="portfolio-item img-zoom ct-photography ct-marketing ct-media">
+                    <div class="portfolio-item-wrap">
+                        <div class="portfolio-image">
+                            <a href="#"><img src="{{asset('Main/images/portfolio/astute.png')}}" alt=""></a>
+                        </div>
+                        <div class="portfolio-description">
+                            <h3>Website Design</h3><br>
+                            <a href="https://www.astuteconsultants.in/" target="_blank"><i class="fa fa-link"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- end: portfolio item -->
 
                 <!-- portfolio item -->
                 <div class="portfolio-item img-zoom ct-photography ct-media ct-branding ct-Media">
@@ -289,7 +302,34 @@
                 </div>
                 <!-- end: portfolio item -->
 
-                
+
+                <!-- portfolio item -->
+                <div class="portfolio-item img-zoom ct-photography ct-marketing ct-media">
+                    <div class="portfolio-item-wrap">
+                        <div class="portfolio-image">
+                            <a href="#"><img src="{{asset('Main/images/portfolio/streaks.png')}}" alt=""></a>
+                        </div>
+                        <div class="portfolio-description">
+                            <h3>Game Design</h3><br>
+                            <a href="https://play.google.com/store/apps/details?id=com.wancstudios.streaks" target="_blank"><i class="fa fa-link"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- end: portfolio item -->
+
+                <!-- portfolio item -->
+                <div class="portfolio-item img-zoom ct-photography ct-marketing ct-media">
+                    <div class="portfolio-item-wrap">
+                        <div class="portfolio-image">
+                            <a href="#"><img src="{{asset('Main/images/portfolio/operators.png')}}" alt=""></a>
+                        </div>
+                        <div class="portfolio-description">
+                            <h3>Game Design</h3><br>
+                            <a href="https://play.google.com/store/apps/details?id=com.wancstudios.operators" target="_blank"><i class="fa fa-link"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- end: portfolio item -->
 
 
             </div>
