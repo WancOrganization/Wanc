@@ -18,18 +18,18 @@
 .image_full{
     background-image:url({{asset('Main/images/wancimages/wancbg4.png')}});
    }
- 
 
- 
+
+
  @media (max-width: 640px) and (min-width: 320px){
    .image_full{
 	background-image:url({{asset('Main/images/wancimages/wancbgMobile.png')}});
    }
-   
+
    .mobileLogo{
-       padding-bottom: 250px; 
+       padding-bottom: 250px;
    }
-   
+
  }
 
 </style>
@@ -67,7 +67,7 @@
                                 <li><a href="#slider"><span>Home</span></a></li>
                                 <li><a href="#wancstudios"><span>About US</span></a></li>
                                 <li><a href="#services"><span>Services</span></a></li>
-                                <li><a href="#portfolio"><span>Portfolio</span></a></li>
+                                <li><a href="#ourwork"><span>Portfolio</span></a></li>
                                 <li><a href="#contactus"><span>Contact Us</span></a></li>
                                 @if($feedbacks->count()>0)
                                 <li><a href="#testimonials"><span>Testimonials</span></a></li>
@@ -83,7 +83,7 @@
                         <li><a href="#slider"><span>Home</span></a></li>
                         <li><a href="#wancstudios"><span>About US</span></a></li>
                         <li><a href="#services"><span>Services</span></a></li>
-                        <li><a href="#portfolio"><span>Portfolio</span></a></li>
+                        <li><a href="#ourwork"><span>Portfolio</span></a></li>
                         <li><a href="#contactus"><span>Contact Us</span></a></li>
                         @if($feedbacks->count()>0)
                         <li><a href="#testimonials"><span>Testimonials</span></a></li>
@@ -104,7 +104,7 @@
 
             <!-- Slide 1 -->
             <div class="slide image_full">
-                
+
                 <div class="container-wide ">
                     <div id="particles-stars" class="particles"></div>
                     <div class="text-center mobileLogo">
@@ -115,14 +115,14 @@
                                 <span style="color: #e02013; font-family: Square721 BT; font-weight: 100; font-size: 20px;">STUDIOS</span>
                             </h4>
                         </div>
-    
+
                     </div>
                 </div>
             </div>
             <!-- end: Slide 1 -->
         </div>
     </div>
-    
+
     <!--end: Inspiro Slider -->
 
 
@@ -205,7 +205,7 @@
                                 </div>
                                 <h3>Game Design</h3>
                                 <p>
-                                    Mobile games have more potential and huge market in both revenue and user base. 
+                                    Mobile games have more potential and huge market in both revenue and user base.
                                     It accounts for more than 50% of the global gaming industry revenue.</p>
                             </div>
                         </div>
@@ -236,18 +236,68 @@
     <!-- end: SERVICES -->
 
 
-    <!-- Portfolio -->
-    <section id="portfolio" style="background-color: #1a1a1a;">
-
-        <div class="portfolio">
-            <div class="text-light text-center pb-5">
-                <h1 class="text-uppercase">OUR WORK</h1>
-            </div>
-            <!-- Portfolio Items -->
-            <div id="portfolio" class="grid-layout portfolio-3-columns" data-margin="0">
+    <section id="ourwork"  style="background-color: #1a1a1a;">
+        <div class="text-light text-center pb-5">
+            <h1 class="text-uppercase">OUR WORK</h1>
+        </div>
+        <div class="container-fluid">
+            <!-- Portfolio Filter -->
+            <nav class="text-white text-center grid-filter gf-outline" data-layout="#portfolio" data-default="ct-webdesign">
+                <ul>
+                    <li class="active"><a href="#" data-category="*">Show All</a></li>
+                    <li><a href="#" data-category=".ct-web">Web Design</a></li>
+                    <li><a href="#" data-category=".ct-branding">Branding & Identity</a></li>
+                    <li><a href="#" data-category=".ct-game">Game Design</a></li>
+                    <li><a href="#" data-category=".ct-graphic">Graphics Design</a></li>
+                    <li><a href="#" data-category=".ct-app">Mobile App</a></li>
+                </ul>
+                <div class=" text-white grid-active-title">Show All</div>
+            </nav>
+            <!-- end: Portfolio Filter -->
+            <!-- Portfolio -->
+            <div id="portfolio" class="grid-layout portfolio-3-columns" data-margin="10">
 
                 <!-- portfolio item -->
-                <div class="portfolio-item img-zoom ct-photography ct-media ct-branding ct-marketing ct-webdesign">
+                <div class="portfolio-item img-zoom ct-app">
+                    <div class="portfolio-item-wrap">
+                        <div class="portfolio-image">
+                            <a href="#"><img src="{{asset('Main/images/portfolio/cricify.png')}}" alt=""></a>
+                        </div>
+                        <div class="portfolio-description">
+                            <h3>App Design</h3><br>
+                            <a href="https://play.google.com/store/apps/details?id=com.wancstudios.cricify" target="_blank"><i class="fa fa-link"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- end: portfolio item -->
+                 <!-- portfolio item -->
+                 <div class="portfolio-item img-zoom ct-web">
+                    <div class="portfolio-item-wrap">
+                        <div class="portfolio-image">
+                            <a href="#"><img src="{{asset('Main/images/portfolio/anzox.png')}}" alt=""></a>
+                        </div>
+                        <div class="portfolio-description">
+                            <h3>Website Design</h3><br>
+                            <a href="https://www.anzox.co.in/" target="_blank"><i class="fa fa-link"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- end: portfolio item -->
+                 <!-- portfolio item -->
+                 <div class="portfolio-item img-zoom ct-web">
+                    <div class="portfolio-item-wrap">
+                        <div class="portfolio-image">
+                            <a href="#"><img src="{{asset('Main/images/portfolio/virtualhyre.png')}}" alt=""></a>
+                        </div>
+                        <div class="portfolio-description">
+                            <h3>Website Design</h3><br>
+                            <a href="https://virtualhyre.com/" target="_blank"><i class="fa fa-link"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- end: portfolio item -->
+                <!-- portfolio item -->
+                <div class="portfolio-item img-zoom ct-web ct-branding">
                     <div class="portfolio-item-wrap">
                         <div class="portfolio-image">
                             <a href="#"><img src="{{asset('Main/images/portfolio/FE.png')}}" alt=""></a>
@@ -259,9 +309,21 @@
                     </div>
                 </div>
                 <!-- end: portfolio item -->
-
+                 <!-- portfolio item -->
+                 <div class="portfolio-item img-zoom ct-web">
+                    <div class="portfolio-item-wrap">
+                        <div class="portfolio-image">
+                            <a href="#"><img src="{{asset('Main/images/portfolio/scord.png')}}" alt=""></a>
+                        </div>
+                        <div class="portfolio-description">
+                            <h3>Website Design</h3><br>
+                            <a href="http://scordprotection.in/" target="_blank"><i class="fa fa-link"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- end: portfolio item -->
                 <!-- portfolio item -->
-                <div class="portfolio-item img-zoom ct-photography ct-marketing ct-media">
+                <div class="portfolio-item img-zoom ct-web">
                     <div class="portfolio-item-wrap">
                         <div class="portfolio-image">
                             <a href="#"><img src="{{asset('Main/images/portfolio/carshield.png')}}" alt=""></a>
@@ -273,9 +335,8 @@
                     </div>
                 </div>
                 <!-- end: portfolio item -->
-
                 <!-- portfolio item -->
-                <div class="portfolio-item img-zoom ct-photography ct-marketing ct-media">
+                <div class="portfolio-item img-zoom ct-web">
                     <div class="portfolio-item-wrap">
                         <div class="portfolio-image">
                             <a href="#"><img src="{{asset('Main/images/portfolio/astute.png')}}" alt=""></a>
@@ -288,8 +349,10 @@
                 </div>
                 <!-- end: portfolio item -->
 
+
+
                 <!-- portfolio item -->
-                <div class="portfolio-item img-zoom ct-photography ct-media ct-branding ct-Media">
+                <div class="portfolio-item img-zoom ct-branding ct-graphic">
                     <div class="portfolio-item-wrap">
                         <div class="portfolio-image">
                             <a href="#"><img src="{{asset('Main/images/portfolio/WCVisitingCard.png')}}" alt=""></a>
@@ -301,10 +364,8 @@
                     </div>
                 </div>
                 <!-- end: portfolio item -->
-
-
                 <!-- portfolio item -->
-                <div class="portfolio-item img-zoom ct-photography ct-marketing ct-media">
+                <div class="portfolio-item img-zoom ct-game">
                     <div class="portfolio-item-wrap">
                         <div class="portfolio-image">
                             <a href="#"><img src="{{asset('Main/images/portfolio/streaks.png')}}" alt=""></a>
@@ -317,8 +378,9 @@
                 </div>
                 <!-- end: portfolio item -->
 
+
                 <!-- portfolio item -->
-                <div class="portfolio-item img-zoom ct-photography ct-marketing ct-media">
+                <div class="portfolio-item img-zoom ct-game">
                     <div class="portfolio-item-wrap">
                         <div class="portfolio-image">
                             <a href="#"><img src="{{asset('Main/images/portfolio/operators.png')}}" alt=""></a>
@@ -331,16 +393,27 @@
                 </div>
                 <!-- end: portfolio item -->
 
-
+                <!-- portfolio item -->
+                <div class="portfolio-item img-zoom ct-game">
+                    <div class="portfolio-item-wrap">
+                        <div class="portfolio-image">
+                            <a href="#"><img src="{{asset('Main/images/portfolio/colorflip.png')}}" alt=""></a>
+                        </div>
+                        <div class="portfolio-description">
+                            <h3>Game Design</h3><br>
+                            <a href="https://play.google.com/store/apps/details?id=com.wancstudios.colorflip" target="_blank"><i class="fa fa-link"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- end: portfolio item -->
             </div>
-            <!-- end: Portfolio Items -->
-
+            <!-- end: Portfolio -->
         </div>
     </section>
-    <!-- end: Portfolio -->
 
 
- 
+
+
 
 
 
