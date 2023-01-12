@@ -437,7 +437,7 @@
             <div class="row ">
                 <div class="col-lg-6 mt-5">
                     <div class="mb-4">
-                        <h4><i class="fa mr-4 fa-phone"></i>Phone : +91 91670 07538</h4>
+                        <h4><i class="fa mr-4 fa-phone"></i>Phone : +91 84419 88897</h4>
 
                     </div>
                     <div class="mt-4">
