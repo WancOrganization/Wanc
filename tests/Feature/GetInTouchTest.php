@@ -3,76 +3,78 @@
 namespace Tests\Feature;
 
 use App\Models\GetInTouch;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class GetInTouchTest extends TestCase
 {
     use RefreshDatabase;
 
-    /** @test */
-    public function a_get_in_touch_can_be_added()
+    public function test_a_get_in_touch_can_be_added(): void
     {
-        $data = GetInTouch::factory()->create();
-        $this->post('get-in-touch',[$data]);
-        $this->assertCount(1,GetInTouch::all());
+        GetInTouch::factory()->create();
+        $this->postJson('get-in-touch', [
+            'name' => 'Test Name',
+            'message' => 'Test Message',
+            'mobile_number' => '1234567890',
+            'subject' => 'Test Subject',
+        ]);
+        $this->assertCount(1, GetInTouch::all());
     }
 
-    /** @test */
-    public function a_get_in_touch_can_be_updated()
+    public function test_a_get_in_touch_can_be_updated(): void
     {
+        $user = User::factory()->create();
         $data = GetInTouch::factory()->create();
-        $this->put('admin/get-in-touch/'.$data->id,[
+
+        $this->actingAs($user)->put('admin/get-in-touch/' . $data->id, [
             'name' => 'new name',
             'message' => 'new message',
             'mobile_number' => '1234',
             'subject' => 'new subject',
         ]);
 
-        $this->assertEquals('new name',GetInTouch::first()->name);
-        $this->assertEquals('new message',GetInTouch::first()->message);
-        $this->assertEquals('1234',GetInTouch::first()->mobile_number);
-        $this->assertEquals('new subject',GetInTouch::first()->subject);
+        $this->assertEquals('new name', GetInTouch::first()->name);
+        $this->assertEquals('new message', GetInTouch::first()->message);
+        $this->assertEquals('1234', GetInTouch::first()->mobile_number);
+        $this->assertEquals('new subject', GetInTouch::first()->subject);
     }
 
-    /** @test */
-    public function a_get_in_touch_can_be_deleted()
+    public function test_a_get_in_touch_can_be_deleted(): void
     {
+        $user = User::factory()->create();
         $data = GetInTouch::factory()->create();
-        $this->delete('admin/get-in-touch/'.$data->id);
-        $this->assertCount(0,GetInTouch::all());
+
+        $this->actingAs($user)->delete('admin/get-in-touch/' . $data->id);
+        $this->assertCount(0, GetInTouch::all());
     }
 
-    /** @test */
-    public function a_name_is_required()
+    public function test_a_name_is_required(): void
     {
-        $response = $this->post('admin/get-in-touch',['name','']);
+        $user = User::factory()->create();
+        $response = $this->actingAs($user)->post('admin/get-in-touch', ['name' => '']);
         $response->assertSessionHasErrors('name');
     }
 
-    /** @test */
-    public function a_message_is_required()
+    public function test_a_message_is_required(): void
     {
-        $response = $this->post('admin/get-in-touch',['message','']);
+        $user = User::factory()->create();
+        $response = $this->actingAs($user)->post('admin/get-in-touch', ['message' => '']);
         $response->assertSessionHasErrors('message');
     }
 
-
-
-    /** @test */
-    public function a_subject_is_required()
+    public function test_a_subject_is_required(): void
     {
-        $response = $this->post('admin/get-in-touch',['subject','']);
+        $user = User::factory()->create();
+        $response = $this->actingAs($user)->post('admin/get-in-touch', ['subject' => '']);
         $response->assertSessionHasErrors('subject');
     }
 
-    /** @test */
-    public function a_mobile_number_is_required()
+    public function test_a_mobile_number_is_required(): void
     {
-        $response = $this->post('admin/get-in-touch',['mobile_number','']);
+        $user = User::factory()->create();
+        $response = $this->actingAs($user)->post('admin/get-in-touch', ['mobile_number' => '']);
         $response->assertSessionHasErrors('mobile_number');
     }
-
-
 }

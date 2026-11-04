@@ -3,95 +3,91 @@
 namespace Tests\Feature;
 
 use App\Models\Feedback;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class FeedbackTest extends TestCase
 {
     use RefreshDatabase;
 
-    /** @test */
-    public function a_feedback_can_be_added()
+    public function test_a_feedback_can_be_added(): void
     {
-        $data = Feedback::factory()->create();
-        $this->post('feedback',[$data]);
-        $this->assertCount(1,Feedback::all());
+        Feedback::factory()->create();
+        $this->post('feedback', [
+            'name' => 'Test Name',
+            'description' => 'Test Description',
+            'designation' => 'Test Designation',
+        ]);
+        $this->assertCount(1, Feedback::all());
     }
 
-    /** @test */
-    public function a_feedback_can_be_updated()
+    public function test_a_feedback_can_be_updated(): void
     {
+        $user = User::factory()->create();
         $data = Feedback::factory()->create();
-        $this->put('admin/feedback/'.$data->id,[
+
+        $this->actingAs($user)->put('admin/feedback/' . $data->id, [
             'name' => 'new name',
             'description' => 'new desc',
             'designation' => 'new desg',
-//            'active' => 0,
         ]);
 
-        $this->assertEquals('new name',Feedback::first()->name);
-        $this->assertEquals('new desc',Feedback::first()->description);
-        $this->assertEquals('new desg',Feedback::first()->designation);
-//        $this->assertEquals('0',Feedback::first()->active);
+        $this->assertEquals('new name', Feedback::first()->name);
+        $this->assertEquals('new desc', Feedback::first()->description);
+        $this->assertEquals('new desg', Feedback::first()->designation);
     }
 
-    /** @test */
-    public function a_feedback_can_be_deleted()
+    public function test_a_feedback_can_be_deleted(): void
     {
+        $user = User::factory()->create();
         $data = Feedback::factory()->create();
-        $this->delete('admin/feedback/'.$data->id);
-        $this->assertCount(0,Feedback::all());
+
+        $this->actingAs($user)->delete('admin/feedback/' . $data->id);
+        $this->assertCount(0, Feedback::all());
     }
 
-    /** @test */
-    public function a_name_is_required()
+    public function test_a_name_is_required(): void
     {
-        $response = $this->post('admin/feedback',['name','']);
+        $user = User::factory()->create();
+        $response = $this->actingAs($user)->post('admin/feedback', ['name' => '']);
         $response->assertSessionHasErrors('name');
     }
 
-    /** @test */
-    public function a_description_is_required()
+    public function test_a_description_is_required(): void
     {
-        $response = $this->post('admin/feedback',['description','']);
+        $user = User::factory()->create();
+        $response = $this->actingAs($user)->post('admin/feedback', ['description' => '']);
         $response->assertSessionHasErrors('description');
     }
 
-
-    /** @test */
-    public function feedback_index_page_test()
+    public function test_feedback_index_page(): void
     {
-        $this->withoutExceptionHandling();
-
-        $response = $this->get('admin/feedback');
+        $user = User::factory()->create();
+        $response = $this->actingAs($user)->get('admin/feedback');
         $response->assertStatus(200);
     }
 
-    /** @test */
-    public function feedback_create_page_test()
+    public function test_feedback_create_page(): void
     {
-        $response = $this->get('admin/feedback/create');
+        $user = User::factory()->create();
+        $response = $this->actingAs($user)->get('admin/feedback/create');
         $response->assertStatus(200);
     }
 
-    /** @test */
-    public function service_show_page_test()
+    public function test_feedback_show_page(): void
     {
+        $user = User::factory()->create();
         $feedback = Feedback::factory()->create();
-        $response = $this->get('admin/feedback/'.$feedback->id);
+        $response = $this->actingAs($user)->get('admin/feedback/' . $feedback->id);
         $response->assertStatus(200);
     }
 
-    /** @test */
-    public function feedback_edit_page_test()
+    public function test_feedback_edit_page(): void
     {
+        $user = User::factory()->create();
         $feedback = Feedback::factory()->create();
-        $response = $this->get('admin/feedback/'.$feedback->id.'/edit');
+        $response = $this->actingAs($user)->get('admin/feedback/' . $feedback->id . '/edit');
         $response->assertStatus(200);
     }
-
-
-
-
 }

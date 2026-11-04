@@ -8,5 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class GetInTouch extends Model
 {
     use HasFactory;
-    protected $guarded = [];
+
+    protected $fillable = ['name', 'mobile_number', 'subject', 'message'];
 }
