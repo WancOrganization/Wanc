@@ -11,7 +11,7 @@ class GetInTouchController extends Controller
 {
     public function index(): View
     {
-        $getInTouches = GetInTouch::orderBy('created_at', 'desc')->get();
+        $getInTouches = GetInTouch::orderBy('created_at', 'desc')->paginate(15);
         return view('Admin.GetInTouch.get-in-touch-index', compact('getInTouches'));
     }
 
@@ -24,7 +24,7 @@ class GetInTouchController extends Controller
     {
         $data = $this->validateData($request);
         GetInTouch::create($data);
-        return redirect('/admin/get-in-touch')->with('message', 'Success');
+        return redirect()->route('admin.get-in-touch.index')->with('message', 'Success');
     }
 
     public function show(GetInTouch $getInTouch): View
@@ -41,13 +41,13 @@ class GetInTouchController extends Controller
     {
         $data = $this->validateData($request);
         $getInTouch->update($data);
-        return redirect('/admin/get-in-touch')->with('message', 'Success');
+        return redirect()->route('admin.get-in-touch.index')->with('message', 'Success');
     }
 
     public function destroy(GetInTouch $getInTouch): RedirectResponse
     {
         $getInTouch->delete();
-        return redirect('/admin/get-in-touch')->with('message', 'Success');
+        return redirect()->route('admin.get-in-touch.index')->with('message', 'Success');
     }
 
     public function validateData(Request $request): array

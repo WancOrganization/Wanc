@@ -12,7 +12,7 @@ class FeedbackController extends Controller
 {
     public function index(): View
     {
-        $feedbacks = Feedback::orderBy('created_at', 'desc')->get();
+        $feedbacks = Feedback::orderBy('created_at', 'desc')->paginate(15);
         return view('Admin.Feedback.feedback-index', compact('feedbacks'));
     }
 
@@ -25,7 +25,7 @@ class FeedbackController extends Controller
     {
         $data = $this->validateData($request);
         Feedback::create($data);
-        return redirect('/admin/feedback')->with('message', 'Success');
+        return redirect()->route('admin.feedback.index')->with('message', 'Success');
     }
 
     public function show(Feedback $feedback): View
@@ -42,13 +42,13 @@ class FeedbackController extends Controller
     {
         $data = $this->validateData($request);
         $feedback->update($data);
-        return redirect('/admin/feedback')->with('message', 'Success');
+        return redirect()->route('admin.feedback.index')->with('message', 'Success');
     }
 
     public function destroy(Feedback $feedback): RedirectResponse
     {
         $feedback->delete();
-        return redirect('/admin/feedback')->with('message', 'Success');
+        return redirect()->route('admin.feedback.index')->with('message', 'Success');
     }
 
     public function validateData(Request $request): array

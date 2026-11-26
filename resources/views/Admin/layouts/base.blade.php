@@ -1,115 +1,46 @@
 <!DOCTYPE html>
-<!--
-This is a starter template page. Use this page to start your new project from
-scratch. This page gets rid of all links and provides the needed markup only.
--->
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-
-    <title>WANC</title>
-
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="{{ asset('Admin/plugins/fontawesome-free/css/all.min.css') }}">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="{{ asset('Admin/dist/css/adminlte.min.css') }}">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>WANC Admin</title>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
     @yield('css')
-    <!-- Google Font: Source Sans Pro -->
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
-<body class="hold-transition sidebar-mini">
-<div class="wrapper">
+<body class="bg-gray-50">
+    <div class="min-h-screen flex">
+        @include('Admin.layouts.sidebar')
 
-    @include('Admin.layouts.navbar')
-    <!-- Main Sidebar Container -->
-    <aside class="main-sidebar sidebar-dark-primary elevation-4">
-        <!-- Brand Logo -->
-        <a href="index3.html" class="brand-link">
-            <img src="{{ asset('Admin/dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
-                 style="opacity: .8">
-            <span class="brand-text font-weight-light">AdminLTE 3</span>
-        </a>
+        <div class="flex-1 flex flex-col lg:ml-64">
+            @include('Admin.layouts.navbar')
 
-        <!-- Sidebar -->
-        <div class="sidebar">
-            <!-- Sidebar user panel (optional) -->
-            <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                <div class="image">
-                    <img src="{{ asset('Admin/dist/img/wanc_logo.jpeg') }}" class="img-circle elevation-2" alt="User Image">
-                </div>
-                <div class="info">
-                    <a href="#" class="d-block">WANC STUDIOS</a>
-                </div>
-            </div>
-
-            <!-- Sidebar Menu -->
-            @include('Admin.layouts.sidebar')
-            <!-- /.sidebar-menu -->
-        </div>
-        <!-- /.sidebar -->
-    </aside>
-
-    <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-        <div class="content-header">
-            <div class="container-fluid">
-                <div class="row mb-2">
-                  @yield('content')
-                </div><!-- /.row -->
-            </div><!-- /.container-fluid -->
-        </div>
-        <!-- /.content-header -->
-
-        <!-- Main content -->
-        <div class="content">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12">
-
+            <main class="flex-1 p-6">
+                @if(session('message'))
+                    <div class="mb-4 p-4 bg-green-100 border border-green-200 text-green-700 rounded-lg">
+                        {{ session('message') }}
                     </div>
+                @endif
 
-                </div>
-                <!-- /.row -->
-            </div><!-- /.container-fluid -->
+                @if($errors->any())
+                    <div class="mb-4 p-4 bg-red-100 border border-red-200 text-red-700 rounded-lg">
+                        <ul class="list-disc list-inside">
+                            @foreach($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+
+                @yield('content')
+            </main>
+
+            <footer class="bg-white border-t border-gray-200 p-4 text-center text-sm text-gray-500">
+                &copy; {{ date('Y') }} WANC Studios. All rights reserved.
+            </footer>
         </div>
-        <!-- /.content -->
     </div>
-    <!-- /.content-wrapper -->
 
-    <!-- Control Sidebar -->
-    <aside class="control-sidebar control-sidebar-dark">
-        <!-- Control sidebar content goes here -->
-        <div class="p-3">
-            <h5>Title</h5>
-            <p>Sidebar content</p>
-        </div>
-    </aside>
-    <!-- /.control-sidebar -->
-
-    <!-- Main Footer -->
-    <footer class="main-footer">
-        <!-- To the right -->
-        <div class="float-right d-none d-sm-inline">
-            Anything you want
-        </div>
-        <!-- Default to the left -->
-        <strong>Copyright &copy; 2014-2019 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
-    </footer>
-</div>
-<!-- ./wrapper -->
-
-<!-- REQUIRED SCRIPTS -->
-
-<!-- jQuery -->
-<script src="{{ asset('Admin/plugins/jquery/jquery.min.js') }}"></script>
-<!-- Bootstrap 4 -->
-<script src="{{ asset('Admin/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-<!-- AdminLTE App -->
-<script src="{{ asset('Admin/dist/js/adminlte.min.js') }}"></script>
-@yield('js')
-
+    @yield('js')
 </body>
 </html>
